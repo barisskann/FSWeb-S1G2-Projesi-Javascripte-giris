@@ -19,9 +19,12 @@ Aşağıdakileri yapın:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
-
-
+const surucuYasi = 12;
+if (surucuYasi > 12) {
+  console.log("True");
+} else {
+  console.log("False");
+}
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
 
@@ -33,10 +36,12 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
-
-
-
+let birinciDeger = 15;
+let ikinciDeger = 50;
+if (ikinciDeger > birinciDeger) {
+  birinciDeger = ikinciDeger;
+}
+console.log(birinciDeger);
 
 /*
 Görev 1c - String bir değeri Number'a dönüştürün (puanlamaya dahil değildir)
@@ -48,9 +53,9 @@ Aşağıdakileri yapın:
 
    İPUCU: Number metoduna bakabilirsin
 */
-
-
-
+let deger = "2000";
+deger = Number(deger);
+console.log(deger);
 
 /*
 Görev 1d - Çarpma
@@ -60,13 +65,13 @@ Aşağıdakileri yapın:
    2. Aşağıdaki çarpma fonksiyonunu çağırarak, 2 sayıyı bu fonksiyona iletin
    3. a ve b'yi çarpıp, sonucu dönün
 */
-
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+const a = 30;
+const b = 2;
+function carpma(sayı1, sayı2) {
+  return sayı1 * sayı2;
 }
-
-
-
+carpma(a, b);
+console.log(carpma(a, b));
 
 /* Görev 2 : Köpeğin Yaşı */
 
@@ -76,12 +81,12 @@ Aşağıdakileri yapın:
  2. Gelen değeri kullanarak köpeğin yaşını hesaplayın (insanlarda 1 yıl köpeklerde 7 yıla denk gelir)
  3. Hesaplanan köpeğin yaşını dönün.
  */
-
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+const yas = 15;
+function kopeginYasi(yas) {
+  return yas * 7;
 }
-
-
+kopeginYasi(yas);
+console.log(kopeginYasi(yas));
 
 /* Görev 3 */
 
@@ -103,12 +108,50 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
-
-function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+let sayac = parseInt(Math.random() * 3 + 1);
+const parametre = "Makas";
+// SAYAC=0 TAŞ   SAYAC=1 KAĞIT  SAYAC=2 MAKAS
+function oyun(sayac, parametre) {
+  if (sayac) {
+    if (sayac === 1) {
+      sayac = "Taş";
+    } else if (sayac === 2) {
+      sayac = "Kağıt";
+    } else if (sayac === 3) {
+      sayac = "Makas";
+    }
+    console.log(`Sizin seçtiğiniiz ${parametre}`);
+    console.log(`Bilgisayarın seçtiği ${sayac}`);
+  }
+  if (sayac === "Taş") {
+      if ((parametre === "Taş")) {
+        console.log("berabere");
+    } else if ((parametre ==="Kağıt")) {
+      console.log("Kağıt kazanır");
+    } else if ((parametre ==="Makas")) {
+        console.log("Taş kazanır");
+    }
+  }
+  else if (sayac === "Kağıt") {
+    if ((parametre === "Taş")) {
+      console.log("Kağıt kazandı");
+    } else if ((parametre === "Kağıt")) {
+      console.log("Berabere");
+    } else if ((parametre === "Makas")) {
+      console.log("Makas kazandı");
+    }
+  }
+  else if (sayac === "Makas") {
+    if ((parametre === "Taş")) {
+      console.log("Taş kazandı");
+    } else if ((parametre === "Kağıt")) {
+      console.log("Makas kazandı");
+    } else if ((parametre === "Makas")) {
+      console.log("Berabere");
+    }
+  }
 }
-
-
+oyun(sayac, parametre);
 
 /* Görev 4 : Metrik Dönüştürücü */
 
@@ -119,13 +162,10 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 2. Aldığınız bu değeri Mil'e dönüştürün
 3. Mil değerini geri dönün
 */
-
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+const km = 100;
+function milDonusturucu(km) {
+  return km*0.621371
 }
-
-
-
 //Görev 4b - Santimetreden Feet
 /*
 Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
@@ -133,12 +173,10 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 2. Aldığınız bu değeri feet'e dönüştürün
 3. feet değerini geri dönün
 */
-
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+let cm;
+function feetDonusturucu(cm) {
+  return cm / 30.48;
 }
-
-
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımızı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
 
@@ -152,11 +190,13 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 3. Bu fonksiyonun dışında bir yerde, maymun sayısının her seferinde 1 azaldığı ve maymun sayısı 1 olana kadar devem eden bir döngü oluşturun. 
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
-
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+const baslangic = 5;
+function cocukSarkisi(baslangic) {
+  for (let i = baslangic; i>= 1;i--){
+    console.log(i);
+  }
+  
 }
-
 
 /* Görev 6 : Not Hesaplayıcı */
 
@@ -172,13 +212,24 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  daha aşağıda 'F aldın'
  dönün
 */
-
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+const not = 70;
+function notHesapla(not) {
+  if (not >= 90 && not <= 100) {
+    console.log('A ALDIN')
+  }
+   if (not >= 80 && not <= 89) {
+     console.log("B ALDIN");
+  }
+   if (not >= 70 && not <= 79) {
+     console.log("C ALDIN");
+  }
+   if (not >= 60 && not <= 69) {
+     console.log("D ALDIN");
+   } if (not <=60) {
+     console.log("F ALDIN");
+   }
 }
-
-
-
+notHesapla(not);
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
 
 /*
@@ -189,18 +240,40 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yapın.
 İPUCU - yarın işlenecek array(dizi) konusunu önden araştırman gerekecek. (https://www.w3schools.com/js/js_arrays.asp)
 İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
 */
+const sesli = ['a', 'e', 'İ','i', 'o', 'ö', 'u', 'ü', 'ı']
 
-
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
-}
-
+const degisken = '22aasfaQQWiiiİ';
+const dizi = [];
+function sesliHarfSayaci(degisken) {
+  let index = 0;  
+  const sayac = degisken.split('');
+  for (let i = 0; i < sayac.length; i++){
+    for (let k = 0; k < sesli.length; k++){
+       if (degisken[i] === sesli[k] || degisken[i]===sesli[k].toUpperCase() ) {
+         console.log(sesli[k]);
+         index++;
+        dizi.push(i);
+      }
+    }  
+  }
+  // let deger = degisken.toUpperCase();
+  // deger = deger.split('')
+  // console.log(deger);
+  // for (let i = 0; i < degisken.length; i++){
+  //   if (sayac[i] === deger[i] && sayac[i]!=' ') {
+  //     index = index + 1;
+      
+  //   }
+  // }
+  // console.log(index);
+console.log(index)}
+sesliHarfSayaci(degisken);
 
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
-function sa(){
-  console.log('Kodlar çalışıyor');
-  return 'as';
+function sa() {
+  console.log("Kodlar çalışıyor");
+  return "as";
 }
 sa();
 /* Bu satırdan sonrasını değiştirmeyin */
@@ -212,5 +285,5 @@ module.exports = {
   milDonusturucu,
   feetDonusturucu,
   cocukSarkisi,
-  notHesapla
-}
+  notHesapla,
+};
